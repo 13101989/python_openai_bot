@@ -1,9 +1,10 @@
+@apiKey = 
 
 ###
 POST https://api.openai.com/v1/chat/completions HTTP/1.1
 Host: api.openai.com
 Content-Type: application/json
-Authorization: Bearer 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
+Authorization: Bearer @apiKey
 
 {
     "model": "gpt-3.5-turbo",
