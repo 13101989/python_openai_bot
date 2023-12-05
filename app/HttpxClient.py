@@ -1,8 +1,12 @@
-import httpx
+# pylint: disable=C0103
+"""Module docstring"""
 import os
+import httpx
 
 
+# pylint: disable=R0903
 class HttpxClient:
+    """class docstring"""
     def __init__(self):
         self.__httpx_client = httpx.AsyncClient()
         self.__url = "https://api.openai.com/v1/chat/completions"
@@ -13,6 +17,7 @@ class HttpxClient:
         }
 
     async def post(self, question):
+        """function docstring"""
         data = await self._generate_payload_content_with_question(question)
         try:
             response = await self.__httpx_client.post(
@@ -20,12 +25,9 @@ class HttpxClient:
             )
             if response.status_code == 200:
                 return response.json()["choices"][0]["message"]["content"]
-            else:
-                return f"Failed to receive response: {response.status_code}"
+            return f"Failed to receive response: {response.status_code}"
         except httpx.HTTPError as exc:
             return f"An HTTP error occurred: {exc}"
-        except Exception as e:
-            return f"An error occurred: {str(e)}"
 
     async def _generate_payload_content_with_question(self, question):
         return {

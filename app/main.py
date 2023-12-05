@@ -2,12 +2,13 @@
 import uvicorn
 from fastapi import FastAPI, HTTPException, Query
 
-from HttpxClient import HttpxClient
+from app.HttpxClient import HttpxClient
 
 
 app = FastAPI()
 httpx_client = HttpxClient()
 
+# pylint: disable=C0103
 stored_question = ""
 
 
@@ -16,8 +17,10 @@ async def get_root(
     question: str = Query("How are you?", description="Question to ask the chatbot")
 ):
     """function docstring"""
+    # pylint: disable=W0603
     global stored_question
     stored_question = question
+    # pylint: disable=C0301
     return {
         "message": "You can interact with ChatGPT by using this format url: /?question=YOUR%20QUESTION%20HERE and retrieve the answer at /message"
     }
