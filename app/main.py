@@ -1,21 +1,38 @@
 """Module docstring"""
 import uvicorn
-from fastapi import FastAPI
+from fastapi import FastAPI, HTTPException, Query
+
+from HttpxClient import HttpxClient
 
 
 app = FastAPI()
+httpx_client = HttpxClient()
+
+stored_question = ""
 
 
 @app.get("/")
-async def get_root():
+async def get_root(
+    question: str = Query("How are you?", description="Question to ask the chatbot")
+):
     """function docstring"""
-    return {"message": "Welcome to the conversational chatbot"}
+    global stored_question
+    stored_question = question
+    return {
+        "message": "You can interact with ChatGPT by using this format url: /?question=YOUR%20QUESTION%20HERE and retrieve the answer at /message"
+    }
 
 
 @app.get("/message")
 async def get_answer():
     """function docstring"""
-    return {"message": "At this endpoint I will return the answers to the questions"}
+    if not stored_question:
+        raise HTTPException(
+            status_code=400,
+            detail="No question stored. Please send a question to the root endpoint first.",
+        )
+    response = await httpx_client.post(stored_question)
+    return response
 
 
 @app.get("/healthcheck")

@@ -1,16 +1,19 @@
 """Module docstring"""
 from fastapi.testclient import TestClient
+from fastapi import Query
 from app.main import app
 
 
 client = TestClient(app)
 
 
-def test_get_root():
+def test_get_root(question: str = Query("How are you?", description="Question to ask the chatbot")):
     """function docstring"""
     response = client.get("/")
     assert response.status_code == 200
-    assert response.json() == {"message": "Welcome to the conversational chatbot"}
+    assert response.json() == {
+        "message": "You can interact with ChatGPT by using this format url: /?question=YOUR%20QUESTION%20HERE and retrieve the answer at /message"
+        }
 
 
 def test_get_answer():
@@ -19,7 +22,7 @@ def test_get_answer():
     assert response.status_code == 200
     # pylint: disable=C0301
     assert response.json() == {
-        "message": "At this endpoint I will return the answers to the questions"
+        "message": "As an AI, I don't have emotions, but I'm here to help you with any questions or tasks you might have. How can I assist you today?"
     }
 
 
