@@ -1,0 +1,10 @@
+[MESSAGES CONTROL]
+
+disable=
+    global-statement,
+    line-too-long,
+    invalid-name,
+    missing-function-docstring,
+    missing-class-docstring,
+    missing-module-docstring,
+    too-few-public-methods

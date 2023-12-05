@@ -1,4 +1,3 @@
-"""Module docstring"""
 import uvicorn
 from fastapi import FastAPI, HTTPException, Query
 
@@ -8,7 +7,6 @@ from app.HttpxClient import HttpxClient
 app = FastAPI()
 httpx_client = HttpxClient()
 
-# pylint: disable=C0103
 stored_question = ""
 
 
@@ -16,11 +14,8 @@ stored_question = ""
 async def get_root(
     question: str = Query("How are you?", description="Question to ask the chatbot")
 ):
-    """function docstring"""
-    # pylint: disable=W0603
     global stored_question
     stored_question = question
-    # pylint: disable=C0301
     return {
         "message": "You can interact with ChatGPT by using this format url: /?question=YOUR%20QUESTION%20HERE and retrieve the answer at /message"
     }
@@ -28,7 +23,6 @@ async def get_root(
 
 @app.get("/message")
 async def get_answer():
-    """function docstring"""
     if not stored_question:
         raise HTTPException(
             status_code=400,
@@ -40,13 +34,11 @@ async def get_answer():
 
 @app.get("/healthcheck")
 async def get_healthcheck_data():
-    """function docstring"""
     return {"message": "At this endpoint I will return healthcheck data"}
 
 
 @app.get("/version")
 async def get_version():
-    """function docstring"""
     return {"message": "At this endpoint I will return the version of the chatbot"}
 
 

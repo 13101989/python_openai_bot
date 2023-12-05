@@ -1,12 +1,8 @@
-# pylint: disable=C0103
-"""Module docstring"""
 import os
 import httpx
 
 
-# pylint: disable=R0903
 class HttpxClient:
-    """class docstring"""
     def __init__(self):
         self.__httpx_client = httpx.AsyncClient()
         self.__url = "https://api.openai.com/v1/chat/completions"
@@ -17,7 +13,6 @@ class HttpxClient:
         }
 
     async def post(self, question):
-        """function docstring"""
         data = await self._generate_payload_content_with_question(question)
         try:
             response = await self.__httpx_client.post(
