@@ -24,7 +24,7 @@ async def get_answer(question: str = Query("What is your name?")):
 
 @app.get("/healthcheck")
 async def get_healthcheck_data():
-    return {"message": "At this endpoint I will return healthcheck data"}
+    return {"message": "Chatbot is healthy"}
 
 
 @app.get("/version")
