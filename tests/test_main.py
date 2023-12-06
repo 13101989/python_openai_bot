@@ -20,9 +20,7 @@ def test_get_answer():
 def test_healthcheck_data():
     response = client.get("/healthcheck")
     assert response.status_code == 200
-    assert response.json() == {
-        "message": "Chatbot is healthy"
-    }
+    assert response.json() == {"message": "Chatbot is healthy"}
 
 
 def test_get_version():
