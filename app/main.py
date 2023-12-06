@@ -1,34 +1,24 @@
+from pathlib import Path
 import uvicorn
-from fastapi import FastAPI, HTTPException, Query
+import yaml
+from fastapi import FastAPI, Query
 
-from app.HttpxClient import HttpxClient
-
+from app.httpclient.HttpxClient import HttpxClient
 
 app = FastAPI()
 httpx_client = HttpxClient()
 
-stored_question = ""
+PATH = Path(".") / "version.yml"
 
 
 @app.get("/")
-async def get_root(
-    question: str = Query("How are you?", description="Question to ask the chatbot")
-):
-    global stored_question
-    stored_question = question
-    return {
-        "message": "You can interact with ChatGPT by using this format url: /?question=YOUR%20QUESTION%20HERE and retrieve the answer at /message"
-    }
+async def get_root():
+    return {"message": "You are at the root endpoint."}
 
 
 @app.get("/message")
-async def get_answer():
-    if not stored_question:
-        raise HTTPException(
-            status_code=400,
-            detail="No question stored. Please send a question to the root endpoint first.",
-        )
-    response = await httpx_client.post(stored_question)
+async def get_answer(question: str = Query("What is your name?")):
+    response = await httpx_client.post(question)
     return response
 
 
@@ -39,7 +29,9 @@ async def get_healthcheck_data():
 
 @app.get("/version")
 async def get_version():
-    return {"message": "At this endpoint I will return the version of the chatbot"}
+    with open(PATH, "r") as file:
+        yaml_content = yaml.safe_load(file)
+    return f"version: {yaml_content['version']}"
 
 
 if __name__ == "__main__":

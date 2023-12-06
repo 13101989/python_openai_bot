@@ -9,4 +9,4 @@ mypy
 black
 
 openai
-requests
+pyyaml

@@ -7,4 +7,6 @@ disable=
     missing-function-docstring,
     missing-class-docstring,
     missing-module-docstring,
-    too-few-public-methods
+    too-few-public-methods,
+    import-error,
+    unspecified-encoding

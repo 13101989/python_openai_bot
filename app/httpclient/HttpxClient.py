@@ -9,7 +9,7 @@ class HttpxClient:
         self.__headers = {
             "Host": "api.openai.com",
             "Content-Type": "application/json",
-            "Authorization": f"Bearer {os.getenv('OPENAI_API_KEY')}",
+            "Authorization": f"Bearer {os.getenv('OPENAI_KEY')}",
         }
 
     async def post(self, question):
