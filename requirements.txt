@@ -10,3 +10,4 @@ black
 
 openai
 pyyaml
+types-PyYAML
