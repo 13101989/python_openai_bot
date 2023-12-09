@@ -11,3 +11,4 @@ black
 openai
 pyyaml
 types-PyYAML
+pytest-cov
