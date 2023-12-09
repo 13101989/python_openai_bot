@@ -57,6 +57,7 @@ jobs:
     - name: Build Sphinx documentation
       run: |
         mkdir docs
+        chmod 700 docs
         make html
         cp -r build/html/ docs/
     - name: Deploy to GitHub Pages
