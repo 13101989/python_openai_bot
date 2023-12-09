@@ -3,7 +3,7 @@ import uvicorn
 import yaml
 from fastapi import FastAPI, Query
 
-from httpclient.HttpxClient import HttpxClient
+from httpclient.HttpxClient import HttpxClient # type: ignore[import-not-found]
 
 app = FastAPI()
 httpx_client = HttpxClient()
