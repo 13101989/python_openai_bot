@@ -20,4 +20,7 @@ pytest --cov .
 echo "Finished running tests"
 
 echo"Building Sphinx documentation"
+mkdir docs
+chmod 700 docs
 make html
+cp -r build/html/ docs/
