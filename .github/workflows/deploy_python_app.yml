@@ -9,7 +9,7 @@ on:
       - main
 
 jobs:
-  build:
+  build-and-deploy:
     runs-on: ubuntu-latest
     strategy:
       matrix:
@@ -40,9 +40,11 @@ jobs:
         pytest --cov .
     - name: Build Sphinx documentation
       run: |
-        cd docs
         make html
-        cd ..
+        cd docs
+        rm -rf *
+        cp -r ../build/html/* .
+        make html
     - name: Deploy to GitHub Pages
       uses: peaceiris/actions-gh-pages@v3
       with:
