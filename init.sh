@@ -23,4 +23,5 @@ echo"Building Sphinx documentation"
 rm -rf ./docs/*
 make html
 cp -r ./build/html/* ./docs/
+cd docs
 echo "Finished building Sphinx documentation"
