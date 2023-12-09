@@ -20,29 +20,29 @@ jobs:
       uses: actions/setup-python@v3
       with:
         python-version: ${{ matrix.python-version }}
-    - name: Install dependencies from shell script
+    # - name: Install dependencies from shell script
+    #   run: |
+    #     ./init.sh
+    - name: Install dependencies
       run: |
-        ./init.sh
-    # - name: Install dependencies
-    #   run: |
-    #     python -m pip install --upgrade pip
-    #     pip install -r requirements.txt
-    # - name: Analysing the code with pylint
-    #   run: |
-    #     pylint app
-    #     pylint tests
-    # - name: Analysing the code with mypy
-    #   run: |
-    #     mypy app
-    #     mypy tests
-    # - name: Analysing the code with pytest
-    #   run: |
-    #     pytest --cov .
-    # - name: Build Sphinx documentation
-    #   run: |
-    #       rm -rf ./docs/*
-    #       make html
-    #       cp -r ./build/html/* ./docs/
+        python -m pip install --upgrade pip
+        pip install -r requirements.txt
+    - name: Analysing the code with pylint
+      run: |
+        pylint app
+        pylint tests
+    - name: Analysing the code with mypy
+      run: |
+        mypy app
+        mypy tests
+    - name: Analysing the code with pytest
+      run: |
+        pytest --cov .
+    - name: Build Sphinx documentation
+      run: |
+          rm -rf ./docs/*
+          make html
+          cp -r ./build/html/* ./docs/
     - name: Deploy to GitHub Pages
       uses: peaceiris/actions-gh-pages@v3
       with:
