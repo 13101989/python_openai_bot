@@ -18,3 +18,11 @@ echo "Finished running mypy"
 echo "Running pytest"
 pytest --cov .
 echo "Finished running tests"
+
+echo"Building Sphinx documentation"
+make html
+cd docs
+rm -rf *
+cp -r ../build/html/* .
+make html
+echo "Finished building Sphinx documentation"
