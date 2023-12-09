@@ -21,5 +21,4 @@ echo "Finished running tests"
 
 echo"Building Sphinx documentation"
 make html
-cp -r ./build/html/* ./docs/
 echo "Finished building documentation"
