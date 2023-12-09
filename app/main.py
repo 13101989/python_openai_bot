@@ -3,7 +3,7 @@ import uvicorn
 import yaml
 from fastapi import FastAPI, Query
 
-from app.httpclient.HttpxClient import HttpxClient
+from httpclient.HttpxClient import HttpxClient
 
 app = FastAPI()
 httpx_client = HttpxClient()
@@ -35,7 +35,7 @@ async def get_version():
 
 
 if __name__ == "__main__":
-    uvicorn.run("main:app", host="127.0.0.1", port=8000, reload=True)
+    uvicorn.run("main:app", host="0.0.0.0", port=8000, reload=True)
 
 
 # python3 -m venv venv
