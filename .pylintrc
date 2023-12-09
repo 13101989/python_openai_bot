@@ -9,4 +9,5 @@ disable=
     missing-module-docstring,
     too-few-public-methods,
     import-error,
-    unspecified-encoding
+    unspecified-encoding,
+    redefined-builtin
