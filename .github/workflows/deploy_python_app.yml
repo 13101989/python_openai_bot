@@ -29,10 +29,12 @@ jobs:
         pip install -r requirements.txt
     - name: Analysing the code with pylint
       run: |
-        pylint $(git ls-files '*.py')
+        pylint app
+        pylint tests
     - name: Analysing the code with mypy
       run: |
-        mypy $(git ls-files '*.py')
+        mypy app
+        mypy tests
     - name: Analysing the code with pytest
       run: |
         pytest --cov .
