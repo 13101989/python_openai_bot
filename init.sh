@@ -24,5 +24,4 @@ make html
 cd docs
 rm -rf *
 cp -r ../build/html/* .
-make html
 echo "Finished building Sphinx documentation"
