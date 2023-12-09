@@ -20,8 +20,7 @@ pytest --cov .
 echo "Finished running tests"
 
 echo"Building Sphinx documentation"
+rm -rf ./docs/*
 make html
-cd docs
-rm -rf *
-cp -r ../build/html/* .
+cp -r ./build/html/* ./docs/
 echo "Finished building Sphinx documentation"
