@@ -57,9 +57,6 @@ jobs:
     - name: Build Sphinx documentation
       run: |
         make html
-        ls -la
-        cd build
-        ls -la
         cp -r ./build/html/* ./docs/
     - name: Deploy to GitHub Pages
       uses: peaceiris/actions-gh-pages@v3
