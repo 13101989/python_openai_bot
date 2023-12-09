@@ -1,7 +1,7 @@
 #!/bin/sh
 
 echo "Installing dependencies"
-python -m pip install --upgrade pip
+pip install --upgrade pip
 pip install -r requirements.txt
 echo "Finished installing dependencies"
 
@@ -22,3 +22,4 @@ echo "Finished running tests"
 echo"Building Sphinx documentation"
 make html
 cp -r ./build/html/* ./docs/
+echo "Finished building documentation"
