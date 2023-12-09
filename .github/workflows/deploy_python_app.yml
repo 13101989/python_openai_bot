@@ -40,9 +40,9 @@ jobs:
         pytest --cov .
     - name: Build Sphinx documentation
       run: |
-          rm -rf ./docs/*
+          cd docs
           make html
-          cp -r ./build/html/* ./docs/
+          cd ..
     - name: Deploy to GitHub Pages
       uses: peaceiris/actions-gh-pages@v3
       with:
