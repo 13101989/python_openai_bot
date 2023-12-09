@@ -1,18 +1,20 @@
-# Define the default target
-.PHONY: all
-all: install_dependencies run_pylint_checks run_pylint_checks run_pytest_tests
+# Minimal makefile for Sphinx documentation
+#
 
-install_dependencies:
-	python -m pip install --upgrade pip
-	pip install -r requirements.txt
+# You can set these variables from the command line, and also
+# from the environment for the first two.
+SPHINXOPTS    ?=
+SPHINXBUILD   ?= sphinx-build
+SOURCEDIR     = source
+BUILDDIR      = build
 
-run_pylint_checks: install_dependencies
-	pylint app
-	pylint tests
+# Put it first so that "make" without argument is like "make help".
+help:
+	@$(SPHINXBUILD) -M help "$(SOURCEDIR)" "$(BUILDDIR)" $(SPHINXOPTS) $(O)
 
-run_pylint_checks: install_dependencies
-	pylint app
-	pylint tests
+.PHONY: help Makefile
 
-run_pytest_tests: install_dependencies
-	pytest --cov .
+# Catch-all target: route all unknown targets to Sphinx using the new
+# "make mode" option.  $(O) is meant as a shortcut for $(SPHINXOPTS).
+%: Makefile
+	@$(SPHINXBUILD) -M $@ "$(SOURCEDIR)" "$(BUILDDIR)" $(SPHINXOPTS) $(O)

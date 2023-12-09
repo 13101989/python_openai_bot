@@ -20,22 +20,19 @@ jobs:
       uses: actions/setup-python@v3
       with:
         python-version: ${{ matrix.python-version }}
-    - name: Install dependencies from shell script
+    # - name: Install dependencies from shell script
+    #   run: |
+    #     ./init.sh
+    - name: Install dependencies
       run: |
-        ./init.sh
-    # - name: Install dependencies from makefile
-    #   run: |
-    #     make
-    # - name: Install dependencies
-    #   run: |
-    #     python -m pip install --upgrade pip
-    #     pip install -r requirements.txt
-    # - name: Analysing the code with pylint
-    #   run: |
-    #     pylint $(git ls-files '*.py')
-    # - name: Analysing the code with mypy
-    #   run: |
-    #     mypy $(git ls-files '*.py')
-    # - name: Analysing the code with pytest
-    #   run: |
-    #     pytest --cov .
+        python -m pip install --upgrade pip
+        pip install -r requirements.txt
+    - name: Analysing the code with pylint
+      run: |
+        pylint $(git ls-files '*.py')
+    - name: Analysing the code with mypy
+      run: |
+        mypy $(git ls-files '*.py')
+    - name: Analysing the code with pytest
+      run: |
+        pytest --cov .

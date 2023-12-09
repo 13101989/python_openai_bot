@@ -9,4 +9,15 @@ openai
 pyyaml
 types-PyYAML
 pytest-cov
+
 sphinx
+sphinx-autodoc-typehints
+sphinx-click
+sphinx-git
+sphinx-panels
+sphinx-design
+sphinx-theme
+sphinx-needs
+sphinx-rtd-theme
+recommonmark
+mdToRst
