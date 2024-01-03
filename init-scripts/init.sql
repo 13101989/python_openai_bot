@@ -11,3 +11,8 @@ insert into users (username, password, email) values ('user', 'user', 'user@loca
 insert into users (username, password, email) values ('pentester', 'pentester', 'pentester@localhost');
 insert into users (username, password, email) values ('hrmanager', 'hrmanager', 'hrmanager@localhost');
 insert into users (username, password, email) values ('itmanager', 'itmanager', 'itmanager@localhost');
+insert into users (username, password, email) values ('ceo', 'ceo', 'ceo@localhost');
+insert into users (username, password, email) values ('cfo', 'cfo', 'cfo@localhost');
+insert into users (username, password, email) values ('cto', 'cto', 'cto@localhost');
+insert into users (username, password, email) values ('ciso', 'ciso', 'ciso@localhost');
+insert into users (username, password, email) values ('ciso2', 'ciso2', 'ciso2@localhost');
