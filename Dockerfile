@@ -20,4 +20,4 @@ EXPOSE 8000
 ENTRYPOINT ["python3", "app/main.py"]
 
 # docker build --build-arg OPENAI_KEY -t bot_image --no-cache .
-# docker run -it -p 127.0.0.1:80:8000 --name bot_container bot_image
+# docker run -it -p 127.0.0.1:8000:8000 --name bot_container bot_image
