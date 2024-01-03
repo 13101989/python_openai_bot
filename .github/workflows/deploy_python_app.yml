@@ -38,6 +38,7 @@ jobs:
     - name: Analysing the code with pytest
       run: |
         pytest --cov .
+        
   deploy:
     needs: build
     runs-on: ubuntu-latest

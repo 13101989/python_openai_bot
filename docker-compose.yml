@@ -1,0 +1,19 @@
+version: '3.8'
+services:
+  app:
+    build:
+      context: .
+      dockerfile: DockerfileApp
+    ports:
+      - "8000:8000"
+    environment:
+      - OPENAI_KEY=${OPENAI_KEY}
+
+  docs:
+    build:
+      context: .
+      dockerfile: DockerfileDocs
+    ports:
+      - "8001:8001"
+
+# docker-compose up --build
