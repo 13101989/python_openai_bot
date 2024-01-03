@@ -4,7 +4,7 @@ import yaml
 from fastapi import FastAPI, Query
 import psycopg2
 
-from app.httpclient.HttpxClient import HttpxClient  # type: ignore[import-not-found] # noqa: E501
+from httpclient.HttpxClient import HttpxClient  # type: ignore[import-not-found] # noqa: E501
 
 app = FastAPI()
 httpx_client = HttpxClient()
