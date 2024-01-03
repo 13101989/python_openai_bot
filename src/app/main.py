@@ -4,7 +4,7 @@ import yaml
 from fastapi import FastAPI, Query
 import psycopg2
 
-from app.httpclient.HttpxClient import HttpxClient  # type: ignore[import-not-found] # noqa: E501
+from src.httpclient.HttpxClient import HttpxClient  # type: ignore[import-not-found] # noqa: E501
 
 app = FastAPI()
 httpx_client = HttpxClient()
@@ -73,12 +73,8 @@ async def read_data():
     return {"data": data}
 
 
-if __name__ == "__main__":
-    uvicorn.run("main:app", host="0.0.0.0", port=8000, reload=True)
-
-
 # python3 -m venv venv
 # . venv/bin/activate
 # pip install --upgrade pip setuptools wheel
 # pip install -r requirements.txt
-# python app/main.py
+# uvicorn src.app.main:app --host 0.0.0.0 --port 8000 --reload
