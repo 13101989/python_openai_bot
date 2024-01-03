@@ -1,5 +1,4 @@
 from pathlib import Path
-import uvicorn
 import yaml
 from fastapi import FastAPI, Query
 import psycopg2

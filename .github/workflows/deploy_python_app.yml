@@ -29,16 +29,13 @@ jobs:
         pip install -r requirements.txt
     - name: Analysing the code with pylint
       run: |
-        pylint app
-        pylint tests
+        pylint src
     - name: Analysing the code with mypy
       run: |
-        mypy app
-        mypy tests
+        mypy src
     - name: Analysing the code with flake8
       run: |
-        flake8 app
-        flake8 tests
+        flake8 src
     - name: Analysing the code with pytest
       run: |
         pytest --cov .

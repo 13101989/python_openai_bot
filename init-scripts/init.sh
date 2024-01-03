@@ -6,18 +6,15 @@ pip install -r requirements.txt
 echo "Finished installing dependencies"
 
 echo "Running pylint checks"
-pylint app
-pylint tests
+pylint src
 echo "Finished running pylint checks"
 
 echo "Running mypy checks"
-mypy app
-mypy tests
+mypy src
 echo "Finished running mypy checks"
 
 echo "Running flake8 checks"
-flake8 app
-flake8 tests
+flake8 src
 echo "Finished running flake8 checks"
 
 echo "Running pytest"
