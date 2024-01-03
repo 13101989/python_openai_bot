@@ -8,12 +8,17 @@ echo "Finished installing dependencies"
 echo "Running pylint checks"
 pylint app
 pylint tests
-echo "Finished running pylint"
+echo "Finished running pylint checks"
 
 echo "Running mypy checks"
 mypy app
 mypy tests
-echo "Finished running mypy"
+echo "Finished running mypy checks"
+
+echo "Running flake8 checks"
+flake8 app
+flake8 tests
+echo "Finished running flake8 checks"
 
 echo "Running pytest"
 pytest --cov .

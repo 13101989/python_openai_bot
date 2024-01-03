@@ -4,11 +4,14 @@ httpx
 pylint
 pytest
 mypy
+flake8
 black
 openai
 pyyaml
 types-PyYAML
 pytest-cov
+psycopg2-binary
+types-psycopg2
 
 sphinx
 sphinx-autodoc-typehints
