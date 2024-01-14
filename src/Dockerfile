@@ -1,8 +1,19 @@
 FROM python:latest
 
+# Create a new user "appuser" with a home directory
+RUN groupadd -r appuser && useradd -r -m -g appuser appuser
+
+USER appuser
+
 # Copy files to container
-COPY . /chatbot
-WORKDIR /chatbot
+COPY --chown=appuser:appuser . /home/appuser/chatbot
+WORKDIR /home/appuser/chatbot
+
+# Create virtual environment
+RUN python -m venv venv
+
+# Set PATH to include the virtual environment
+ENV PATH="/home/appuser/chatbot/venv/bin:$PATH"
 
 # Install python dependencies
 RUN pip install --upgrade pip
