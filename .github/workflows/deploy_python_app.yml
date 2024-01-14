@@ -58,8 +58,7 @@ jobs:
         pip install -r requirements.txt
     - name: Build Sphinx documentation
       run: |
-        mkdir source
-        cp -r docs/source source
+        cp -r docs/source docs/make.bat docs/Makefile .
         make html
     - name: Deploy to GitHub Pages
       uses: peaceiris/actions-gh-pages@v3
