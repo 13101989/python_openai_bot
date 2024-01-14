@@ -1,0 +1,13 @@
+.github
+.mypy_cache
+.pytest_cache
+.vscode
+__pycache__
+
+venv
+docs
+openai_requests
+
+.coverage
+.env
+init.sh

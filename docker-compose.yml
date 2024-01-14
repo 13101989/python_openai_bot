@@ -18,7 +18,7 @@ services:
   app:
     build:
       context: .
-      dockerfile: DockerfileApp
+      dockerfile: src/Dockerfile
     container_name: app-backend
     ports:
       - "8000:8000"
@@ -32,7 +32,7 @@ services:
   docs:
     build:
       context: .
-      dockerfile: DockerfileDocs
+      dockerfile: docs/Dockerfile
     container_name: app-docs
     ports:
       - "8001:8001"
