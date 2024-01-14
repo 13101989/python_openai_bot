@@ -14,4 +14,3 @@ insert into users (username, password, email) values ('itmanager', 'itmanager', 
 insert into users (username, password, email) values ('ceo', 'ceo', 'ceo@localhost');
 insert into users (username, password, email) values ('cfo', 'cfo', 'cfo@localhost');
 insert into users (username, password, email) values ('cto', 'cto', 'cto@localhost');
-insert into users (username, password, email) values ('test', 'test', 'test@localhost');
