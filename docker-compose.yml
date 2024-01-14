@@ -13,7 +13,7 @@ services:
       - my_network
     volumes:
       - postgres_data:/var/lib/postgresql/data
-      - ./init-scripts:/docker-entrypoint-initdb.d
+      - ./postgresDB/init-scripts:/docker-entrypoint-initdb.d
 
   app:
     build:
