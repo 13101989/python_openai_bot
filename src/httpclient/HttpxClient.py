@@ -3,9 +3,6 @@ import httpx
 from dotenv import load_dotenv
 
 
-load_dotenv()
-
-
 class HttpxClient:
     def __init__(self):
         self.__httpx_client = httpx.AsyncClient()

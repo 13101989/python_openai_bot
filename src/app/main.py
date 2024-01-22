@@ -7,6 +7,7 @@ from dotenv import load_dotenv
 
 from src.httpclient.HttpxClient import HttpxClient  # type: ignore[import-not-found] # noqa: E501
 
+
 load_dotenv()
 
 app = FastAPI()
@@ -20,10 +21,10 @@ def connect_to_database():
     try:
         # Connect to the PostgreSQL database
         connection = psycopg2.connect(
-            dbname="postgres",
+            dbname=f"{os.getenv('POSTGRES_DB')}",
             user=f"{os.getenv('POSTGRES_USER')}",
             password=f"{os.getenv('POSTGRES_PASSWORD')}",
-            host=f"{os.getenv('POSTGRES_DB')}",
+            host=f"{os.getenv('POSTGRES_HOST')}",
             port="5432",
         )
 

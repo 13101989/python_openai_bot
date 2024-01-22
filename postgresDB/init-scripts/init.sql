@@ -14,3 +14,5 @@ insert into users (username, password, email) values ('itmanager', 'itmanager', 
 insert into users (username, password, email) values ('ceo', 'ceo', 'ceo@localhost');
 insert into users (username, password, email) values ('cfo', 'cfo', 'cfo@localhost');
 insert into users (username, password, email) values ('cto', 'cto', 'cto@localhost');
+
+-- docker run --name postgres -p 5432:5432 -e POSTGRES_USER=${POSTGRES_USER} -e POSTGRES_PASSWORD=${POSTGRES_PASSWORD} -e POSTGRES_DB=POSTGRES_DB -d postgres
