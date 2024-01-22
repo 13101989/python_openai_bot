@@ -23,7 +23,7 @@ def connect_to_database():
             dbname="postgres",
             user=os.getenv('POSTGRES_USER'),
             password=os.getenv('POSTGRES_PASSWORD'),
-            host=os.getenv('POSTGRES_DB'),  # Use the service name as the hostname
+            host=os.getenv('POSTGRES_DB'),
             port="5432",
         )
 
