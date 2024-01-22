@@ -12,6 +12,7 @@ types-PyYAML
 pytest-cov
 psycopg2-binary
 types-psycopg2
+python-dotenv
 
 sphinx
 sphinx-autodoc-typehints

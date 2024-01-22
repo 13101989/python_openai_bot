@@ -1,9 +1,13 @@
+import os
 from pathlib import Path
 import yaml
 from fastapi import FastAPI, Query
 import psycopg2
+from dotenv import load_dotenv
 
 from src.httpclient.HttpxClient import HttpxClient  # type: ignore[import-not-found] # noqa: E501
+
+load_dotenv()
 
 app = FastAPI()
 httpx_client = HttpxClient()
@@ -17,9 +21,9 @@ def connect_to_database():
         # Connect to the PostgreSQL database
         connection = psycopg2.connect(
             dbname="postgres",
-            user="postgres",
-            password="postgres",
-            host="postgres",  # Use the service name as the hostname
+            user=os.getenv('POSTGRES_USER'),
+            password=os.getenv('POSTGRES_PASSWORD'),
+            host=os.getenv('POSTGRES_DB'),  # Use the service name as the hostname
             port="5432",
         )
 
