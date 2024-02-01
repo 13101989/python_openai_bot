@@ -4,7 +4,7 @@ services:
     build:
       context: .
       dockerfile: postgresDB/Dockerfile
-    image: 1310198913101989/cahtbot_db_postgres
+    image: 1310198913101989/chatbot_db_postgres
     container_name: app_postgres_db
     environment:
       POSTGRES_DB: ${POSTGRES_DB}
