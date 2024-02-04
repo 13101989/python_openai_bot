@@ -1,15 +1,18 @@
 replicaCount: 1
 
 images:
-- name: chatbot_backend_fastapi
-  repository: docker.io/1310198913101989/chatbot_backend_fastapi:latest
-  pullPolicy: IfNotPresent
-- name: chatbot_docs
-  repository: docker.io/1310198913101989/chatbot_docs:latest
-  pullPolicy: IfNotPresent
-- name: chatbot_db_postgres
-  repository: docker.io/1310198913101989/chatbot_db_postgres:latest
-  pullPolicy: IfNotPresent
+  chatbot_backend_fastapi:
+    name: chatbot_backend_fastapi
+    repository: docker.io/1310198913101989/chatbot_backend_fastapi:latest
+    pullPolicy: IfNotPresent
+  chatbot_docs:
+    name: chatbot_docs
+    repository: docker.io/1310198913101989/chatbot_docs:latest
+    pullPolicy: IfNotPresent
+  chatbot_db_postgres:
+    name: chatbot_db_postgres
+    repository: docker.io/1310198913101989/chatbot_db_postgres:latest
+    pullPolicy: IfNotPresent
 
 services:
 - name: chatbot_backend_fastapi

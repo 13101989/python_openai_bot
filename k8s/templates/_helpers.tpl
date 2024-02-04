@@ -1,16 +1,16 @@
-{{/* Generate basic labels */}}
-{{- define "chatbot.labels" -}}
-app.kubernetes.io/name: {{ include "chatbot.name" . }}
-app.kubernetes.io/instance: {{ .Release.Name }}
-{{- end -}}
-
 {{/* Define the name template */}}
-{{- define "chatbot.name" -}}
+{{- define "k8s.name" -}}
 {{- default .Chart.Name .Values.nameOverride | trunc 63 | trimSuffix "-" -}}
 {{- end -}}
 
+{{/* Generate basic labels */}}
+{{- define "k8s.labels" -}}
+app.kubernetes.io/name: {{ include "k8s.name" . }}
+app.kubernetes.io/instance: {{ .Release.Name }}
+{{- end -}}
+
 {{/* Define the fullname template */}}
-{{- define "chatbot.fullname" -}}
+{{- define "k8s.fullname" -}}
 {{- if .Values.fullnameOverride -}}
 {{- .Values.fullnameOverride | trunc 63 | trimSuffix "-" -}}
 {{- else -}}
@@ -24,7 +24,7 @@ app.kubernetes.io/instance: {{ .Release.Name }}
 {{- end -}}
 
 {{/* Create selector labels */}}
-{{- define "chatbot.selectorLabels" -}}
-app.kubernetes.io/name: {{ include "chatbot.name" . }}
+{{- define "k8s.selectorLabels" -}}
+app.kubernetes.io/name: {{ include "k8s.name" .}}
 app.kubernetes.io/instance: {{ .Release.Name }}
 {{- end -}}
