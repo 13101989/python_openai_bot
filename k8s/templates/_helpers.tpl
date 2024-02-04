@@ -1,16 +1,16 @@
 {{/* Generate basic labels */}}
-{{- define "fastapi.labels" -}}
-app.kubernetes.io/name: {{ include "fastapi.name" . }}
+{{- define "chatbot.labels" -}}
+app.kubernetes.io/name: {{ include "chatbot.name" . }}
 app.kubernetes.io/instance: {{ .Release.Name }}
 {{- end -}}
 
 {{/* Define the name template */}}
-{{- define "fastapi.name" -}}
+{{- define "chatbot.name" -}}
 {{- default .Chart.Name .Values.nameOverride | trunc 63 | trimSuffix "-" -}}
 {{- end -}}
 
 {{/* Define the fullname template */}}
-{{- define "fastapi.fullname" -}}
+{{- define "chatbot.fullname" -}}
 {{- if .Values.fullnameOverride -}}
 {{- .Values.fullnameOverride | trunc 63 | trimSuffix "-" -}}
 {{- else -}}
@@ -24,7 +24,7 @@ app.kubernetes.io/instance: {{ .Release.Name }}
 {{- end -}}
 
 {{/* Create selector labels */}}
-{{- define "fastapi.selectorLabels" -}}
-app.kubernetes.io/name: {{ include "fastapi.name" . }}
+{{- define "chatbot.selectorLabels" -}}
+app.kubernetes.io/name: {{ include "chatbot.name" . }}
 app.kubernetes.io/instance: {{ .Release.Name }}
 {{- end -}}

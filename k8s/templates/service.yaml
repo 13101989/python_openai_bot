@@ -1,15 +1,16 @@
+{{- range .Values.services }}
 apiVersion: v1
 kind: Service
 metadata:
-  name: {{ include "fastapi.fullname" . }}
+  name: {{ .name }}
   labels:
-    {{- include "fastapi.labels" . | nindent 4 }}
+    {{- include "chatbot.labels" . | nindent 4 }}
 spec:
-  type: {{ .Values.service.type }}
+  type: {{ .type }}
   ports:
-    - port: {{ .Values.service.port }}
-      targetPort: {{ .Values.service.targetPort }}
-      protocol: TCP
-      name: http
+    - protocol: TCP
+      port: {{ .port }}
+      targetPort: {{ .targetPort }}
   selector:
-    {{- include "fastapi.selectorLabels" . | nindent 6 }}
+    {{- include "chatbot.selectorLabels" . | nindent 6 }}
+{{- end }}

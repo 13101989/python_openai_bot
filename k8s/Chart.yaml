@@ -1,5 +1,5 @@
 apiVersion: v2
-name: fastapi
+name: chatbot
 description: A Helm chart for Kubernetes to deploy the chatbot application
 type: application
 version: 0.0.1

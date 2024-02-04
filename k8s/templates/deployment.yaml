@@ -1,24 +1,27 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: {{ include "fastapi.fullname" . }}
+  name: {{ include "chatbot.fullname" . }}
   labels:
-    {{- include "fastapi.labels" . | nindent 4 }}
+    {{- include "chatbot.labels" . | nindent 4 }}
 spec:
   replicas: {{ .Values.replicaCount }}
   selector:
     matchLabels:
-      {{- include "fastapi.selectorLabels" . | nindent 6 }}
+      {{- include "chatbot.selectorLabels" . | nindent 6 }}
   template:
     metadata:
       labels:
-        {{- include "fastapi.selectorLabels" . | nindent 8 }}
+        {{- include "chatbot.selectorLabels" . | nindent 8 }}
     spec:
       containers:
-        - name: {{ .Chart.Name }}
-          image: {{ .Values.image.repository }}
-          imagePullPolicy: {{ .Values.image.pullPolicy }}
-          ports:
-            - name: http
-              containerPort: 8000
-              protocol: TCP
+        - name: {{ .Values.images.chatbot_backend_fastapi.name }}
+          image: {{ .Values.images.chatbot_backend_fastapi.repository }}
+          imagePullPolicy: {{ .Values.images.chatbot_backend_fastapi.pullPolicy }}
+        - name: {{ .Values.images.chatbot_docs.name }}
+          image: {{ .Values.images.chatbot_docs.repository }}
+          imagePullPolicy: {{ .Values.images.chatbot_docs.pullPolicy }}
+        - name: {{ .Values.images.chatbot_db_postgres.name }}
+          image: {{ .Values.images.chatbot_db_postgres.repository }}
+          imagePullPolicy: {{ .Values.images.chatbot_db_postgres.pullPolicy }}
+{{- include "services.yaml" . | nindent 0 }}
