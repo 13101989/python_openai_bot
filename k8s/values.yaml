@@ -2,28 +2,28 @@ replicaCount: 1
 
 images:
   chatbot_backend_fastapi:
-    name: chatbot_backend_fastapi
+    name: chatbot-backend-fastapi
     repository: docker.io/1310198913101989/chatbot_backend_fastapi:latest
     pullPolicy: IfNotPresent
   chatbot_docs:
-    name: chatbot_docs
+    name: chatbot-docs
     repository: docker.io/1310198913101989/chatbot_docs:latest
     pullPolicy: IfNotPresent
   chatbot_db_postgres:
-    name: chatbot_db_postgres
+    name: chatbot-db-postgres
     repository: docker.io/1310198913101989/chatbot_db_postgres:latest
     pullPolicy: IfNotPresent
 
 services:
-- name: chatbot_backend_fastapi
+- name: backend-fastapi-service
   type: ClusterIP
   port: 8000
   targetPort: 8000
-- name: chatbot_docs
+- name: docs-service
   type: ClusterIP
   port: 8001
   targetPort: 8001
-- name: chatbot_db_postgres
+- name: db-postgres-service
   type: ClusterIP
   port: 5432
   targetPort: 5432

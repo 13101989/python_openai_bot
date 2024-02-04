@@ -19,21 +19,33 @@ spec:
           image: {{ .Values.images.chatbot_backend_fastapi.repository }}
           imagePullPolicy: {{ .Values.images.chatbot_backend_fastapi.pullPolicy }}
           ports:
-            - name: http
+            - name: backend
               containerPort: 8000
               protocol: TCP
-
         - name: {{ .Values.images.chatbot_docs.name }}
           image: {{ .Values.images.chatbot_docs.repository }}
           imagePullPolicy: {{ .Values.images.chatbot_docs.pullPolicy }}
           ports:
-            - name: http
+            - name: docs
               containerPort: 8001
               protocol: TCP
         - name: {{ .Values.images.chatbot_db_postgres.name }}
           image: {{ .Values.images.chatbot_db_postgres.repository }}
           imagePullPolicy: {{ .Values.images.chatbot_db_postgres.pullPolicy }}
+          env:
+            - name: POSTGRES_DB
+              value: ${POSTGRES_DB}
+            - name: POSTGRES_USER
+              value: ${POSTGRES_USER}
+            - name: POSTGRES_PASSWORD
+              value: ${POSTGRES_PASSWORD}
           ports:
-            - name: http
+            - name: postgres
               containerPort: 5432
               protocol: TCP
+          volumeMounts:
+            - name: postgres-data
+              mountPath: /var/lib/postgresql/data
+      volumes:
+        - name: postgres-data
+          emptyDir: {}
