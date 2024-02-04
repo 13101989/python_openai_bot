@@ -1,12 +1,12 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: {{ include "k8s.fullname" . }}-backend-fastapi-service
+  name: {{ include "chatbot.fullname" . }}-backend-fastapi-service
   labels:
-    {{- include "k8s.labels" . | nindent 4 }}
+    {{- include "chatbot.labels" . | nindent 4 }}
 spec:
   selector:
-    app: {{ include "k8s.fullname" . }}
+    app: {{ include "chatbot.fullname" . }}
   ports:
     - protocol: TCP
       port: 8000
@@ -15,12 +15,12 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: {{ include "k8s.fullname" . }}-docs-service
+  name: {{ include "chatbot.fullname" . }}-docs-service
   labels:
-    {{- include "k8s.labels" . | nindent 4 }}
+    {{- include "chatbot.labels" . | nindent 4 }}
 spec:
   selector:
-    app: {{ include "k8s.fullname" . }}
+    app: {{ include "chatbot.fullname" . }}
   ports:
     - protocol: TCP
       port: 8001
@@ -29,12 +29,12 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: {{ include "k8s.fullname" . }}-db-postgres-service
+  name: {{ include "chatbot.fullname" . }}-db-postgres-service
   labels:
-    {{- include "k8s.labels" . | nindent 4 }}
+    {{- include "chatbot.labels" . | nindent 4 }}
 spec:
   selector:
-    app: {{ include "k8s.fullname" . }}
+    app: {{ include "chatbot.fullname" . }}
   ports:
     - protocol: TCP
       port: 5432

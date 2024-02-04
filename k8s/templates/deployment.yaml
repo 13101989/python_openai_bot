@@ -1,18 +1,18 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: {{ include "k8s.fullname" . }}
+  name: {{ include "chatbot.fullname" . }}
   labels:
-    {{- include "k8s.labels" . | nindent 4 }}
+    {{- include "chatbot.labels" . | nindent 4 }}
 spec:
   replicas: {{ .Values.replicaCount }}
   selector:
     matchLabels:
-      {{- include "k8s.selectorLabels" . | nindent 6 }}
+      {{- include "chatbot.selectorLabels" . | nindent 6 }}
   template:
     metadata:
       labels:
-        {{- include "k8s.selectorLabels" . | nindent 8 }}
+        {{- include "chatbot.selectorLabels" . | nindent 8 }}
     spec:
       containers:
         - name: {{ .Values.images.chatbot_backend_fastapi.name }}
