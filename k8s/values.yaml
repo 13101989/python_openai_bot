@@ -15,15 +15,21 @@ images:
     pullPolicy: IfNotPresent
 
 services:
-- name: backend-fastapi-service
-  type: ClusterIP
-  port: 8000
-  targetPort: 8000
-- name: docs-service
-  type: ClusterIP
-  port: 8001
-  targetPort: 8001
-- name: db-postgres-service
-  type: ClusterIP
-  port: 5432
-  targetPort: 5432
+  backend_fastapi_service:
+    type: ClusterIP
+    protocol: TCP
+    port: 8000
+    targetPort: 8000
+    nodePort: 30080
+  docs_service:
+    type: ClusterIP
+    protocol: TCP
+    port: 8001
+    targetPort: 8001
+    nodePort: 30081
+  db_postgres_service:
+    type: ClusterIP
+    protocol: TCP
+    port: 5432
+    targetPort: 5432
+    nodePort: 30432
