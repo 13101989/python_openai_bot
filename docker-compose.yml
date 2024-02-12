@@ -58,3 +58,4 @@ volumes:
   postgres_data:
 
 # docker-compose up --build
+# docker push 1310198913101989/chatbot_backend_fastapi
