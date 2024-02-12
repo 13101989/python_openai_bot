@@ -15,3 +15,11 @@ appVersion: "1.0"
 # helm create k8s
 # helm install chatbot .
 # helm uninstall chatbot
+
+# k get pods -n chatbot
+# k logs chatbot-6694877865-gss25
+# k get pods --show-labels
+
+# k get services -n chatbot
+# k describe service chatbot
+
