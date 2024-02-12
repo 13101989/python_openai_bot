@@ -60,11 +60,20 @@ spec:
           imagePullPolicy: {{ .Values.images.chatbot_db_postgres.pullPolicy }}
           env:
             - name: POSTGRES_DB
-              value: {{ .Values.env.POSTGRES_DB }}
+              valueFrom:
+                secretKeyRef:
+                  name: my-secret
+                  key: POSTGRES_DB
             - name: POSTGRES_USER
-              value: {{ .Values.env.POSTGRES_USER }}
+              valueFrom:
+                secretKeyRef:
+                  name: my-secret
+                  key: POSTGRES_USER
             - name: POSTGRES_PASSWORD
-              value: {{ .Values.env.POSTGRES_PASSWORD }}
+              valueFrom:
+                secretKeyRef:
+                  name: my-secret
+                  key: POSTGRES_PASSWORD
           ports:
             - name: {{ .Values.services.db_postgres_service.name }}
               containerPort: {{ .Values.services.db_postgres_service.targetPort }}
