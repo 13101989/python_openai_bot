@@ -5,22 +5,22 @@ metadata:
   labels:
     {{- include "chatbot.labels" . | nindent 4 }}
 spec:
-  # type: NodePort
+  type: NodePort
   selector:
-    app: {{ include "chatbot.fullname" . }}
+    app.kubernetes.io/name: {{ include "chatbot.fullname" . }}
   ports:
     - name: {{ .Values.services.backend_fastapi_service.name }}
       protocol: {{ .Values.services.backend_fastapi_service.protocol }}
       port: {{ .Values.services.backend_fastapi_service.port }}
       targetPort: {{ .Values.services.backend_fastapi_service.targetPort }}
-      # nodePort: {{ .Values.services.backend_fastapi_service.nodePort }}
+      nodePort: {{ .Values.services.backend_fastapi_service.nodePort }}
     - name: {{ .Values.services.docs_service.name }}
       protocol: {{ .Values.services.docs_service.protocol }}
       port: {{ .Values.services.docs_service.port }}
       targetPort: {{ .Values.services.docs_service.targetPort }}
-      # nodePort: {{ .Values.services.docs_service.nodePort }}
-    - name: {{ .Values.services.db_postgres_service }}
+      nodePort: {{ .Values.services.docs_service.nodePort }}
+    - name: {{ .Values.services.db_postgres_service.name }}
       protocol: {{ .Values.services.db_postgres_service.protocol }}
       port: {{ .Values.services.db_postgres_service.port }}
       targetPort: {{ .Values.services.db_postgres_service.targetPort }}
-      # nodePort: {{ .Values.services.db_postgres_service.nodePort }}
+      nodePort: {{ .Values.services.db_postgres_service.nodePort }}

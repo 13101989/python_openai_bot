@@ -8,5 +8,10 @@ appVersion: "1.0"
 
 # k create namespace chatbot
 # k get ns
+
 # k config get-contexts
 # k config set-context --current --namespace=chatbot
+
+# helm create k8s
+# helm install chatbot .
+# helm uninstall chatbot

@@ -9,7 +9,7 @@ spec:
   selector:
     matchLabels:
       {{- include "chatbot.selectorLabels" . | nindent 6 }}
-  template:
+  template:    
     metadata:
       labels:
         {{- include "chatbot.selectorLabels" . | nindent 8 }}
