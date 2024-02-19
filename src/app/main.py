@@ -24,8 +24,8 @@ def connect_to_database():
             dbname=f"{os.getenv('POSTGRES_DB')}",
             user=f"{os.getenv('POSTGRES_USER')}",
             password=f"{os.getenv('POSTGRES_PASSWORD')}",
-            host=f"{os.getenv('POSTGRES_HOST')}",
-            port="5432",
+            host=f"{os.getenv('POSTGRES_HOST_K8s')}",
+            port="30432",
         )
 
         cursor = connection.cursor()

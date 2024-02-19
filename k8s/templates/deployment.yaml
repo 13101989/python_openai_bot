@@ -28,7 +28,7 @@ spec:
               valueFrom:
                 secretKeyRef:
                   name: my-secret
-                  key: POSTGRES_HOST
+                  key: POSTGRES_HOST_K8s
             - name: POSTGRES_DB
               valueFrom:
                 secretKeyRef:
@@ -84,7 +84,3 @@ spec:
       volumes:
         - name: postgres-data
           emptyDir: {}
-
-# env variables stored as secrets in kubernetes. secret=my-secret
-# kubectl describe secret my-secret
-# kubectl get secret my-secret -o jsonpath="{.data.OPENAI_KEY}" | base64 --decode

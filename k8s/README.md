@@ -17,6 +17,7 @@ helm lint
 # add all secrets in my-secret
 kubectl create secret generic my-secret --from-env-file=.env
 kubectl get secrets my-secret -o yaml
+kubectl delete secret my-secret
 
 # install chart
 helm install chatbot .
