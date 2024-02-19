@@ -5,29 +5,4 @@ type: application
 version: 0.0.1
 appVersion: "1.0"
 
-# helm create k8s
-
-# helm lint
-# helm install chatbot .
-# helm uninstall chatbot
-# helm install chatbot . --namespace chatbot
-# helm uninstall chatbot --namespace chatbot
-
-
-# k create namespace chatbot
-# k get ns
-
-# k config get-contexts
-# k config set-context --current --namespace=chatbot
-
-# k get pods
-# k get pods --show-labels
-# k logs chatbot-c4bd69558-k9mbm
-# k describe pods
-
-# k get services -n chatbot
-# k describe service chatbot
-
-# k port-forward svc/chatbot 8000:8000 -n chatbot 
-# k port-forward svc/chatbot 8000:8000 8001:8001 5432:5432
 
