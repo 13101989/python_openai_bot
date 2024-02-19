@@ -16,21 +16,23 @@ helm lint
 
 # add all secrets in my-secret
 kubectl create secret generic my-secret --from-env-file=.env
-kubectl get secrets my-secret -o yaml
 kubectl delete secret my-secret
+kubectl get secrets my-secret -o yaml
+kubectl get secret my-secret -o json | jq -r '.data | keys[] as $k | "\($k): \(.[$k] | @base64d)"'
 
 # install chart
 helm install chatbot .
 helm uninstall chatbot
 
 # use port-forward instead of NodePort option
-k port-forward svc/chatbot 8000:8000 -n chatbot 
+k get services
+k describe service chatbot
 k port-forward svc/chatbot 8000:8000 8001:8001 5432:5432
 
 # troubleshoot commands
 k get pods
 k get pods --show-labels
-k logs chatbot-c4bd69558-k9mbm
+k logs chatbot-c4bd69558-6fbqg
 k describe pods
 k get services -n chatbot
 k describe service chatbot

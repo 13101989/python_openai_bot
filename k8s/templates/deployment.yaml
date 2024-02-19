@@ -28,7 +28,7 @@ spec:
               valueFrom:
                 secretKeyRef:
                   name: my-secret
-                  key: POSTGRES_HOST_K8s
+                  key: POSTGRES_HOST
             - name: POSTGRES_DB
               valueFrom:
                 secretKeyRef:
@@ -79,8 +79,9 @@ spec:
               containerPort: {{ .Values.services.db_postgres_service.targetPort }}
               protocol: {{ .Values.services.db_postgres_service.protocol }}
           volumeMounts:
-            - name: postgres-data
-              mountPath: /var/lib/postgresql/data
+            - name: init-scripts
+              mountPath: /docker-entrypoint-initdb.d
       volumes:
-        - name: postgres-data
-          emptyDir: {}
+        - name: init-scripts
+          configMap:
+            name: {{ include "chatbot.fullname" . }}-postgres-init
