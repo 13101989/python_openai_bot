@@ -27,7 +27,7 @@ helm uninstall chatbot
 # use port-forward instead of NodePort option
 k get services
 k describe service chatbot
-k port-forward svc/chatbot 8000:8000 8001:8001 5432:5432
+k port-forward -n chatbot svc/chatbot 8000:8000 8001:8001 5432:5432
 
 # troubleshoot commands
 k get pods
@@ -46,4 +46,7 @@ kubectl patch svc argocd-server -n argocd -p '{"spec": {"type": "LoadBalancer"}}
 
 # get initial password, user is admin
 argocd admin initial-password -n argocd
+
+# apply config to k8s cluster
+k apply -f argocd/application.yaml
 ```
