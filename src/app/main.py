@@ -52,7 +52,7 @@ async def get_root():
     return {"message": "You are at the root endpoint."}
 
 
-@app.get("/message")
+@app.get("/message") # /message?question=Who%20is%20Elon%20Musk?
 async def get_answer(question: str = Query("What is your name?")):
     response = await httpx_client.post(question)
     return response
