@@ -4,7 +4,7 @@ services:
     build:
       context: .
       dockerfile: postgresDB/Dockerfile
-    image: 1310198913101989/chatbot_db_postgres
+    image: 1310198913101989/chatbot_postgres
     container_name: chatbot_postgres
     environment:
       POSTGRES_DB: ${POSTGRES_DB}
@@ -23,7 +23,7 @@ services:
       context: .
       dockerfile: src/Dockerfile
     container_name: chatbot_backend
-    image: 1310198913101989/chatbot_backend_fastapi
+    image: 1310198913101989/chatbot_backend
     ports:
       - "8000:8000"
     environment:
@@ -58,6 +58,6 @@ volumes:
   postgres_data:
 
 # docker-compose up --build
-# docker push 1310198913101989/chatbot_backend_fastapi
-# docker push 1310198913101989/chatbot_db_postgres
+# docker push 1310198913101989/chatbot_backend
+# docker push 1310198913101989/chatbot_postgres
 # docker push 1310198913101989/chatbot_docs
