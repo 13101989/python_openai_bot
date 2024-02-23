@@ -48,5 +48,5 @@ kubectl patch svc argocd-server -n argocd -p '{"spec": {"type": "LoadBalancer"}}
 argocd admin initial-password -n argocd
 
 # apply config to k8s cluster
-k apply -f argocd/application.yaml
+k apply -f k8s/argocd/application.yaml
 ```
