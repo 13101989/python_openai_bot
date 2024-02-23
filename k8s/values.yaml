@@ -3,7 +3,7 @@ replicaCount: 1
 images:
   chatbot_backend_fastapi:
     name: backend-container
-    repository: docker.io/1310198913101989/chatbot_backend_fastapi:latest
+    repository: docker.io/1310198913101989/chatbot_backend:latest
     pullPolicy: IfNotPresent
   chatbot_docs:
     name: docs-container
@@ -11,7 +11,7 @@ images:
     pullPolicy: IfNotPresent
   chatbot_db_postgres:
     name: db-container
-    repository: docker.io/1310198913101989/chatbot_db_postgres:latest
+    repository: docker.io/1310198913101989/chatbot_postgres:latest
     pullPolicy: IfNotPresent
 
 services:
