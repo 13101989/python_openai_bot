@@ -5,7 +5,7 @@ services:
       context: .
       dockerfile: postgresDB/Dockerfile
     image: 1310198913101989/chatbot_db_postgres
-    container_name: chatbot_postgres_db
+    container_name: chatbot_postgres
     environment:
       POSTGRES_DB: ${POSTGRES_DB}
       POSTGRES_USER: ${POSTGRES_USER}
