@@ -65,4 +65,4 @@ volumes:
 # docker push 1310198913101989/chatbot_postgres
 # docker push 1310198913101989/chatbot_docs
 
-# for local container app to work you need to change ${POSTGRES_HOST} to postgres here and in main.py file
+# for local containers cluster to work you need to change ${POSTGRES_HOST} to postgres here and in main.py file
