@@ -7,7 +7,7 @@
     "esbonio.sphinx.confDir": "",
     "rest-client.environmentVariables": {
         "restclient": {
-            "OPENAI_KEY": "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"
+            "Authorization": "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"
     }
     
 }
