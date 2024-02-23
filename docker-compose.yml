@@ -61,3 +61,6 @@ volumes:
 # docker push 1310198913101989/chatbot_backend_k8s
 # docker push 1310198913101989/chatbot_postgres_k8s
 # docker push 1310198913101989/chatbot_docs_k8s
+# docker push 1310198913101989/chatbot_backend
+# docker push 1310198913101989/chatbot_postgres
+# docker push 1310198913101989/chatbot_docs
