@@ -5,7 +5,7 @@ services:
       context: .
       dockerfile: postgresDB/Dockerfile
     image: 1310198913101989/chatbot_db_postgres
-    container_name: app_postgres_db
+    container_name: chatbot_postgres_db
     environment:
       POSTGRES_DB: ${POSTGRES_DB}
       POSTGRES_USER: ${POSTGRES_USER}
@@ -22,7 +22,7 @@ services:
     build:
       context: .
       dockerfile: src/Dockerfile
-    container_name: app_backend
+    container_name: chatbot_backend
     image: 1310198913101989/chatbot_backend_fastapi
     ports:
       - "8000:8000"
@@ -41,7 +41,7 @@ services:
     build:
       context: .
       dockerfile: docs/Dockerfile
-    container_name: app_docs
+    container_name: chatbot_docs
     image: 1310198913101989/chatbot_docs
     ports:
       - "8001:8001"
