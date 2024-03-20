@@ -44,7 +44,7 @@ resource "kubernetes_secret" "my_secret" {
 
 resource "helm_release" "my_chatbot_release" {
   name    = "my-chatbot-release"
-  chart   = "${path.module}/../k8s"
+  chart   = "${path.module}/../../k8s/"
   version = "0.0.1"
 
   namespace = var.namespace
