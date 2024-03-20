@@ -1,0 +1,70 @@
+replicaCount:
+  value: 1
+  images:
+    chatbot_backend_fastapi:
+      name: "backend-container"
+      repository: "docker.io/1310198913101989/chatbot_backend_k8s:latest"
+      pullPolicy: "IfNotPresent"
+      env:
+        - name: OPENAI_KEY
+          valueFrom:
+            secretKeyRef:
+              name: my-secret
+              key: OPENAI_KEY
+        - name: POSTGRES_HOST
+          valueFrom:
+            secretKeyRef:
+              name: my-secret
+              key: POSTGRES_HOST
+        - name: POSTGRES_DB
+          valueFrom:
+            secretKeyRef:
+              name: my-secret
+              key: POSTGRES_DB
+        - name: POSTGRES_USER
+          valueFrom:
+            secretKeyRef:
+              name: my-secret
+              key: POSTGRES_USER
+        - name: POSTGRES_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              name: my-secret
+              key: POSTGRES_PASSWORD
+    chatbot_docs:
+      name: "docs-container"
+      repository: "docker.io/1310198913101989/chatbot_docs_k8s:latest"
+      pullPolicy: "IfNotPresent"
+    chatbot_db_postgres:
+      name: "db-container"
+      repository: "docker.io/1310198913101989/chatbot_postgres_k8s:latest"
+      pullPolicy: "IfNotPresent"
+      env:
+        - name: POSTGRES_DB
+          valueFrom:
+            secretKeyRef:
+              name: my-secret
+              key: POSTGRES_DB
+        - name: POSTGRES_USER
+          valueFrom:
+            secretKeyRef:
+              name: my-secret
+              key: POSTGRES_USER
+        - name: POSTGRES_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              name: my-secret
+              key: POSTGRES_PASSWORD
+  services:
+    backend_fastapi_service:
+      name: "backend-service"
+      targetPort: 8000
+      protocol: "TCP"
+    docs_service:
+      name: "docs-service"
+      targetPort: 8001
+      protocol: "TCP"
+    db_postgres_service:
+      name: "db-service"
+      targetPort: 5432
+      protocol: "TCP"

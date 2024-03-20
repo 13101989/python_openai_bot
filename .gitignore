@@ -5,3 +5,4 @@ docs/build/
 *.env
 .coverage
 .vscode
+.pytest_cache
