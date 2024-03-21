@@ -1,5 +1,4 @@
-replicaCount:
-  value: 1
+replicaCount: 1
   images:
     chatbot_backend_fastapi:
       name: "backend-container"
