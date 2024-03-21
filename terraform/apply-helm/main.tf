@@ -34,7 +34,7 @@ provider "aws" {
 data "terraform_remote_state" "eks" {
   backend = "local"
   config = {
-    path = "../deploy-eks/.terraform/terraform.tfstate"
+    path = "eks-cluster-state/terraform.tfstate"
   }
 }
 
