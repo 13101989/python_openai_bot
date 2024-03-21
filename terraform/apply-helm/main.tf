@@ -78,8 +78,8 @@ provider "helm" {
 }
 
 
-resource "helm_release" "chatbot_release" {
+resource "helm_release" "chatbot" {
   name   = "chatbot-release"
   chart  = "${path.module}/k8s"
-  values = [file("${path.module}/values.json")]
+  timeout = 1000
 }
