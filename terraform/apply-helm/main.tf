@@ -31,19 +31,12 @@ provider "aws" {
   region = var.region
 }
 
-data "terraform_remote_state" "eks" {
-  backend = "local"
-  config = {
-    path = "eks-cluster-state/terraform.tfstate"
-  }
-}
-
 data "aws_eks_cluster" "cluster" {
-  name = data.terraform_remote_state.eks.outputs.cluster_name
+  name = var.cluster_name
 }
 
 data "aws_eks_cluster_auth" "cluster" {
-  name = data.terraform_remote_state.eks.outputs.cluster_name
+  name = var.cluster_name
 }
 
 provider "kubernetes" {
