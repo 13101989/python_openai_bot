@@ -13,11 +13,6 @@ variable "region" {
   type        = string
 }
 
-variable "key_name" {
-  description = "Name of the SSH key pair"
-  type        = string
-}
-
 variable "instance_type" {
   description = "Instance type"
   type        = string

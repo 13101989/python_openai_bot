@@ -19,25 +19,10 @@ provider "aws" {
   region = var.region
 }
 
-resource "tls_private_key" "private_key" {
-  algorithm   = "ED25519"
-  ecdsa_curve = "P521"
-}
-
-resource "aws_key_pair" "public_key" {
-  key_name   = var.key_name
-  public_key = tls_private_key.private_key.public_key_openssh
-}
-
-output "public_key" {
-  description = "Public key value"
-  value       = aws_key_pair.public_key.key_name
-}
-
 data "aws_availability_zones" "available" {}
 
 module "vpc" {
-  source  = "terraform-aws-modules/vpc/aws"
+  source = "terraform-aws-modules/vpc/aws"
 
   name = "vpc"
   cidr = "10.0.0.0/16"
