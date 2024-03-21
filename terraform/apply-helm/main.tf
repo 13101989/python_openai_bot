@@ -52,8 +52,7 @@ provider "kubernetes" {
 
 resource "kubernetes_secret" "my_secret" {
   metadata {
-    name      = "my-secret"
-    namespace = var.namespace
+    name = "my-secret"
   }
 
   data = {
@@ -80,10 +79,7 @@ provider "helm" {
 
 
 resource "helm_release" "chatbot_release" {
-  name  = "chatbot-release"
-  chart = "${path.module}/k8s"
-
-  namespace = var.namespace
-
+  name   = "chatbot-release"
+  chart  = "${path.module}/k8s"
   values = [file("${path.module}/values.yaml")]
 }
