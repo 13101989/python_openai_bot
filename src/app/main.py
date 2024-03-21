@@ -36,7 +36,7 @@ def connect_to_database():
 
         return rows  # Return the fetched data as a list of tuples
 
-    except (psycopg2.Error) as error:
+    except psycopg2.Error as error:
         print("Error while connecting to PostgreSQL:", error)
         return []  # Return an empty list in case of an error
 
