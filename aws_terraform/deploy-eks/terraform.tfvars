@@ -1,2 +1,2 @@
-region        = "eu-central-1"
-instance_type = "t2.micro"
+region        = "eu-north-1"
+instance_type = "t3.micro"
