@@ -58,11 +58,11 @@ resource "kubernetes_secret" "my_secret" {
   }
 }
 
-resource "helm_release" "my_chatbot_release" {
+resource "helm_release" "chatbot_release" {
   name  = "chatbot-release"
-  chart = "./../../k8s"
+  chart = "${path.module}/k8s"
 
   namespace = var.namespace
 
-  values = ["${file("values.yaml")}"]
+  values = [file("${path.module}/values.yaml")]
 }
