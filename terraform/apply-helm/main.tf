@@ -81,5 +81,5 @@ provider "helm" {
 resource "helm_release" "chatbot_release" {
   name   = "chatbot-release"
   chart  = "${path.module}/k8s"
-  values = [file("${path.module}/values.yaml")]
+  values = [file("${path.module}/values.json")]
 }
