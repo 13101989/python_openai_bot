@@ -79,7 +79,7 @@ provider "helm" {
 
 
 resource "helm_release" "chatbot" {
-  name   = "chatbot-release"
-  chart  = "${path.module}/k8s"
+  name    = "chatbot-release"
+  chart   = "${path.module}/k8s"
   timeout = 1000
 }
