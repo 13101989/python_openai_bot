@@ -34,3 +34,8 @@ variable "namespace" {
   description = "Kubernetes namespace"
   type        = string
 }
+
+variable "cluster_name" {
+  description = "EKS cluster name"
+  type        = string
+}
