@@ -49,7 +49,6 @@ provider "kubernetes" {
   }
 }
 
-
 resource "kubernetes_secret" "my_secret" {
   metadata {
     name = "my-secret"
@@ -79,6 +78,6 @@ provider "helm" {
 
 
 resource "helm_release" "chatbot_release" {
-  name    = "chatbot-release"
-  chart   = "${path.module}/k8s"
+  name  = "chatbot-release"
+  chart = "${path.module}/k8s"
 }
